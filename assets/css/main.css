@@ -1,0 +1,760 @@
+:root {
+  --main-color: #252b2f;
+  --secondary-color: #f8043d;
+  --dark-color: #172124;
+  --gray-color: #3b4045;
+}
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.redirect {
+  transition: all ease 0.3s;
+  transform: translateY(0);
+}
+
+a.redirect:hover {
+  transition: all ease 0.3s;
+  transform: translateY(-5px);
+}
+
+a.redirect-red:hover {
+  box-shadow: 0 10px 20px 0 rgba(248, 4, 61, 0.3);
+}
+
+a.redirect-gray:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--main-color);
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 1.5em 8em;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: var(--main-color);
+  z-index: 9999;
+  transition: all ease 0.3s;
+}
+
+nav.scroll {
+  border-bottom: 1px solid var(--gray-color);
+  background-color: transparent;
+  backdrop-filter: blur(15px) brightness(60%);
+  transition: all ease 0.3s;
+}
+
+nav > div:first-child > h2 > span {
+  color: var(--secondary-color);
+  margin-left: 0.1em;
+}
+
+nav > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: 600;
+  gap: 2em;
+}
+
+nav > div:nth-child(2) > a {
+  display: flex;
+  align-items: center;
+}
+
+nav > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav > div:last-child > a {
+  background-color: var(--secondary-color);
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 0.8em 1.4em;
+  border-radius: 25px;
+}
+
+/* Main */
+main {
+  padding: 5em 8em;
+}
+
+/* Main -> Home */
+main > #home {
+  display: grid;
+  grid-template-areas: "BioHome BioHome PhotoHome";
+  padding: 1.5em 0 3em 0;
+  align-items: center;
+}
+
+main > #home > div:first-child {
+  display: flex;
+  flex-direction: column;
+  grid-area: BioHome;
+}
+
+main > #home > div:first-child > span {
+  font-size: 3.5em;
+}
+
+main > #home > div:first-child > span:nth-child(1) {
+  font-weight: 500;
+  font-size: 1.6em;
+  display: flex;
+}
+
+main > #home > div:first-child > span:nth-child(1) > div {
+  color: var(--secondary-color);
+  margin-left: 0.4em;
+}
+
+main > #home > div:first-child > span:nth-child(2) {
+  font-weight: 700;
+}
+
+main > #home > div:first-child > div:nth-child(3) {
+  display: flex;
+  margin-top: 0.2em;
+  font-size: 1.8em;
+  font-weight: 700;
+  gap: 6px;
+}
+
+main > #home > div:first-child > div:nth-child(3) > span > span {
+  color: var(--secondary-color);
+}
+
+main > #home > div:first-child > div:nth-child(4) {
+  margin: 1.5em 0;
+  max-width: 80%;
+}
+
+main > #home > div:first-child > div:nth-child(4) > span {
+  line-height: 2;
+  font-size: 0.9em;
+}
+
+main > #home > div:first-child > div:nth-child(5) {
+  display: flex;
+  gap: 15px;
+}
+
+main > #home > div:first-child > div:nth-child(5) > a:first-child {
+  padding: 0.6em 1.4em;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+main > #home > div:first-child > div:nth-child(5) > a:last-child {
+  padding: 0.6em 1.4em;
+  background-color: var(--gray-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+main
+  > #home
+  > div:first-child
+  > div:nth-child(5)
+  > a:last-child
+  > span:last-child {
+  margin-top: 3px;
+}
+
+main > #home > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: PhotoHome;
+  user-select: none;
+}
+
+main > #home > div:last-child > div:first-child {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 22em;
+  height: 22em;
+}
+
+main > #home > div:last-child > div:first-child > div:nth-child(even) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+main > #home > div:last-child > div:first-child > div:nth-child(1) {
+  margin-left: -1em;
+  margin-top: 2.5em;
+  animation: ShapeHome 3.9s infinite;
+}
+
+main > #home > div:last-child > div:first-child > div:nth-child(3) {
+  margin-left: -1.8em;
+  margin-top: -2em;
+  animation: ShapeHome 4.3s infinite;
+}
+
+main > #home > div:last-child > div:first-child > div:nth-child(2) {
+  margin-right: -1.8em;
+  margin-top: 1.7em;
+  animation: ShapeHome 3.7s infinite;
+}
+
+main > #home > div:last-child > div:first-child > div:nth-child(4) {
+  margin-right: -1.2em;
+  margin-top: -3em;
+  animation: ShapeHome 4.1s infinite;
+}
+
+main > #home > div:last-child > img:last-child {
+  position: absolute;
+  z-index: -1;
+  right: 3em;
+  bottom: 0;
+}
+
+/* Main -> Connect */
+main > #connect {
+  padding: 3em 0;
+}
+
+main > #connect > .title {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+main > #connect > div {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  gap: 1em;
+}
+
+main > #connect > div > a {
+  padding: 0.5em 0.65em;
+  display: flex;
+  align-items: center;
+  background-color: var(--gray-color);
+  border-radius: 25px;
+  justify-content: center;
+}
+
+main > #connect > div > a:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Main -> Portofolio */
+main > #portofolio {
+  padding: 3em 0;
+}
+
+main > #portofolio > .title {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+main > #portofolio > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+main > #portofolio > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+main > #portofolio > div:nth-child(2) > div img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Main -> Projects */
+main > #projects {
+  padding: 3em 0;
+}
+
+main > #projects > div:first-child {
+  margin-bottom: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main > #projects > div:first-child > .title {
+  font-size: 2.5em;
+}
+
+main > #projects > div:first-child > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+}
+
+main > #projects > div:first-child > a > svg {
+  transform: translateX(0);
+  transition: all ease 0.3s;
+}
+
+main > #projects > div:first-child > a span {
+  transform: translateX(0);
+  transition: all ease 0.2s;
+}
+
+main > #projects > div:first-child > a:hover span {
+  transform: translateX(-5px);
+  transition: all ease 0.2s;
+}
+
+main > #projects > div:first-child > a:hover svg {
+  transform: translateX(5px);
+  transition: all ease 0.3s;
+}
+
+main > #projects > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+main > #projects > div:nth-child(2) > div {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--gray-color);
+}
+
+main > #projects > div:nth-child(2) > div > img {
+  width: 100%;
+}
+
+main > #projects > div:nth-child(2) > div > div:last-child {
+  padding: 0.8em 1em 1em 1em;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+main > #projects > div:nth-child(2) > div > div:last-child > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+main
+  > #projects
+  > div:nth-child(2)
+  > div
+  > div:last-child
+  > div:last-child
+  > a {
+  background-color: var(--dark-color);
+  padding: 0.6em;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+main
+  > #projects
+  > div:nth-child(2)
+  > div
+  > div:last-child
+  > div:first-child
+  > span {
+  font-size: 0.8em;
+}
+
+main
+  > #projects
+  > div:nth-child(2)
+  > div
+  > div:last-child
+  > div:first-child
+  > div:last-child {
+  display: flex;
+  gap: 6px;
+  height: 100%;
+  height: 40px;
+}
+
+main > .projects-dots {
+  position: absolute;
+  left: -11em;
+  margin-top: -3em;
+  z-index: -1;
+}
+
+/* Main -> About */
+main > #about {
+  padding: 3em 0;
+}
+
+main > #about > .title {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+main > #about > .subtitle {
+  font-size: 0.9em;
+  line-height: 1.8em;
+}
+
+main > #about > div:last-child {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+main > #about > div:last-child > div {
+  background-color: var(--gray-color);
+  padding: 1.5em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+main > #about > div:last-child > div > .icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+
+main > #about > div:last-child > div > .icon > div {
+  background-color: var(--secondary-color);
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main > #about > div:last-child > div > span {
+  font-size: 0.9em;
+  line-height: 1.6em;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  height: 20em;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  place-items: center;
+}
+
+footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  opacity: 0.4;
+}
+
+footer > div:first-child > img:first-child {
+  animation: ReactShapeFooter infinite 2.5s;
+}
+
+footer > div:first-child > img:last-child {
+  animation: CoreldrawShapeFooter infinite 2.8s;
+}
+
+footer > div:last-child > img:first-child {
+  animation: KotlinShapeFooter infinite 2.4s;
+}
+
+footer > div:last-child > img:last-child {
+  animation: LaravelShapeFooter infinite 3.3s;
+}
+
+footer > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  opacity: 0.4;
+}
+
+footer > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+footer > div:nth-child(2) > .title {
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  z-index: 999;
+}
+
+footer > div:nth-child(2) > .title > span {
+  color: var(--secondary-color);
+}
+
+footer > div:nth-child(2) > .subtitle {
+  text-align: center;
+  z-index: 999;
+}
+
+footer > div:nth-child(2) > .subtitle > a {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+footer > div:nth-child(2) > div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  gap: 1em;
+  z-index: 999;
+}
+
+footer > div:nth-child(2) > div:nth-child(3) > a {
+  padding: 0.5em 0.65em;
+  display: flex;
+  align-items: center;
+  background-color: var(--gray-color);
+  border-radius: 25px;
+  justify-content: center;
+}
+
+footer > div:nth-child(2) > div:nth-child(3) > a:hover {
+  background-color: var(--secondary-color);
+}
+
+footer > div:nth-child(2) > .by {
+  margin-top: 3em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9em;
+  z-index: 999;
+}
+
+footer > div:nth-child(2) > .by > i {
+  background-color: #f8043d;
+}
+
+footer > div:nth-child(2)::after {
+  content: "";
+  height: 10em;
+  width: 20em;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 300px 0 rgba(248, 4, 61, 1);
+  margin-bottom: -15em;
+  margin-top: 2.5em;
+}
+
+/* ======================================================= */
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  /* Navbar */
+  nav {
+    padding: 1.5em 2em;
+  }
+
+  /* Main */
+  main {
+    padding: 5em 2em;
+  }
+
+  /* Main -> Home */
+  main > #home {
+    display: grid;
+    grid-template-areas:
+      "PhotoHome"
+      "BioHome";
+  }
+
+  main > #home > div:last-child > img:last-child {
+    bottom: -5em;
+    right: 10em;
+  }
+
+  main > #home > div:first-child > div:nth-child(3) {
+    display: flex;
+  }
+
+  main > #home > div:last-child {
+    justify-content: center;
+    margin-bottom: 4em;
+  }
+
+  main > #home > div:first-child > div:nth-child(4) {
+    max-width: 100%;
+  }
+
+  main > .projects-dots {
+    left: -8em;
+    margin-top: 7em;
+  }
+
+  /* Footer */
+  footer {
+    padding: 0 2em;
+    height: 25em;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  footer > div:first-child {
+    display: none;
+  }
+
+  footer > div:last-child {
+    display: none;
+  }
+
+  footer > div:nth-child(2):after {
+    content: "";
+    height: 10em;
+    width: 20em;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 300px 0 rgba(248, 4, 61, 1);
+    margin-bottom: -15em;
+    margin-top: 5em;
+  }
+}
+
+/* ======================================================= */
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  /* Navbar */
+  nav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  nav > div:nth-child(2) {
+    display: none;
+  }
+
+  main > #home > div:last-child > img:last-child {
+    bottom: -5em;
+    right: 2em;
+  }
+
+  /* Main -> Portofolio */
+  main > #portofolio > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  main > #portofolio > div:nth-child(2) > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  main > #projects > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  main > #about > div:last-child {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Keyframe for footer shape image */
+@keyframes ReactShapeFooter {
+  0% {
+    transform: translateY(0) rotate(25deg);
+  }
+
+  50% {
+    transform: translateY(15px) rotate(25deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(25deg);
+  }
+}
+
+@keyframes CoreldrawShapeFooter {
+  0% {
+    transform: translateY(0) rotate(-10deg);
+  }
+
+  50% {
+    transform: translateY(15px) rotate(-10deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+}
+
+@keyframes KotlinShapeFooter {
+  0% {
+    transform: translateY(0) rotate(-15deg);
+  }
+
+  50% {
+    transform: translateY(15px) rotate(-15deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-15deg);
+  }
+}
+
+@keyframes LaravelShapeFooter {
+  0% {
+    transform: translateY(0) rotate(10deg);
+  }
+
+  50% {
+    transform: translateY(15px) rotate(10deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(10deg);
+  }
+}
+
+/* Keyframe for home shape image */
+@keyframes ShapeHome {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
