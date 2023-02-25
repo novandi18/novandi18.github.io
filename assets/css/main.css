@@ -14,6 +14,27 @@
   color: #fff;
 }
 
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--gray-color);
+  border-radius: 15px;
+}
+
+/* Scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 a {
   text-decoration: none;
 }
@@ -49,9 +70,12 @@ nav {
   align-items: center;
   position: fixed;
   width: 100%;
-  background-color: var(--main-color);
   z-index: 9999;
   transition: all ease 0.3s;
+}
+
+nav.bg-nav {
+  background-color: var(--main-color);
 }
 
 nav.scroll {
@@ -203,6 +227,11 @@ main > #home > div:last-child > div:first-child > div:nth-child(even) {
   justify-content: flex-end;
 }
 
+main > #home > div:last-child > div:first-child > div img {
+  width: 80px;
+  height: 80px;
+}
+
 main > #home > div:last-child > div:first-child > div:nth-child(1) {
   margin-left: -1em;
   margin-top: 2.5em;
@@ -228,10 +257,9 @@ main > #home > div:last-child > div:first-child > div:nth-child(4) {
 }
 
 main > #home > div:last-child > img:last-child {
-  position: absolute;
-  z-index: -1;
-  right: 3em;
-  bottom: 0;
+  width: 350px;
+  box-shadow: 0 0 200px 0 rgba(248, 4, 61, 0.2);
+  border-radius: 50px;
 }
 
 /* Main -> Connect */
@@ -596,11 +624,6 @@ footer > div:nth-child(2)::after {
       "BioHome";
   }
 
-  main > #home > div:last-child > img:last-child {
-    bottom: -5em;
-    right: 10em;
-  }
-
   main > #home > div:first-child > div:nth-child(3) {
     display: flex;
   }
@@ -660,9 +683,33 @@ footer > div:nth-child(2)::after {
     display: none;
   }
 
+  main > #home > div:last-child > div:first-child > div img {
+    width: 75px;
+    height: 75px;
+  }
+
+  main > #home > div:last-child > div:first-child > div:nth-child(1) {
+    margin-left: 0em;
+    margin-top: 1.5em;
+  }
+
+  main > #home > div:last-child > div:first-child > div:nth-child(3) {
+    margin-left: -0.8em;
+    margin-top: -5em;
+  }
+
+  main > #home > div:last-child > div:first-child > div:nth-child(2) {
+    margin-right: 0em;
+    margin-top: 0.5em;
+  }
+
+  main > #home > div:last-child > div:first-child > div:nth-child(4) {
+    margin-right: -0.4em;
+    margin-top: -4em;
+  }
+
   main > #home > div:last-child > img:last-child {
-    bottom: -5em;
-    right: 2em;
+    width: 280px;
   }
 
   /* Main -> Portofolio */
@@ -674,6 +721,10 @@ footer > div:nth-child(2)::after {
   main > #portofolio > div:nth-child(2) > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  main > #projects > div:first-child > a span {
+    display: none;
   }
 
   main > #projects > div:nth-child(2) {
