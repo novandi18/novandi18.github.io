@@ -600,6 +600,111 @@ footer {
   color: var(--text-secondary);
 }
 
+/* --- Interactions --- */
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--accent-color);
+  z-index: 1100;
+  transition: width 0.1s linear;
+}
+
+/* Custom cursor */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  pointer-events: none;
+  z-index: 1200;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease,
+    opacity 0.25s ease;
+}
+.cursor-dot.is-visible {
+  opacity: 1;
+}
+.cursor-dot.is-hover {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+}
+body.cursor-active,
+body.cursor-active a,
+body.cursor-active button,
+body.cursor-active [data-magnetic] {
+  cursor: none;
+}
+
+/* Magnetic targets */
+[data-magnetic] {
+  transition: translate 0.25s ease, background var(--transition-speed),
+    color var(--transition-speed);
+  will-change: translate;
+}
+
+/* Marquee */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--rule-color);
+  border-bottom: 1px solid var(--rule-color);
+  padding: 18px 0;
+  white-space: nowrap;
+}
+.marquee__track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+.marquee span {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 28px;
+  color: var(--text-primary);
+}
+.marquee span.accent {
+  color: var(--accent-color);
+  padding: 0;
+}
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Disable custom cursor on touch / no-hover devices */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot {
+    display: none;
+  }
+  body.cursor-active,
+  body.cursor-active a,
+  body.cursor-active button,
+  body.cursor-active [data-magnetic] {
+    cursor: auto;
+  }
+}
+
 /* --- Responsive --- */
 @media (max-width: 900px) {
   main {
@@ -670,6 +775,12 @@ footer {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .marquee__track {
+    animation: none;
+  }
+  .cursor-dot {
+    display: none;
   }
   * {
     scroll-behavior: auto;
