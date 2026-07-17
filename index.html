@@ -10,6 +10,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png" />
 
+    <!-- Preconnect for Three.js CDN -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4HZX8JFPDT"></script>
     <script>
@@ -34,6 +37,7 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
+    <canvas class="recon-grid" aria-hidden="true"></canvas>
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="cursor-dot" aria-hidden="true"></div>
     <nav>
@@ -44,6 +48,7 @@
         <a href="#home">Home</a>
         <a href="#portofolio">Portofolio</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#about">About</a>
       </div>
       <div class="nav-actions">
@@ -64,7 +69,8 @@
           A Software Developer and Offensive Security Consultant with a strong academic
           foundation in Informatics Engineering. I architect and ship production-grade digital
           products, then probe them with an attacker's mindset. My work spans full-stack
-          development, native mobile engineering, and enterprise delivery, complemented by
+          development, native mobile engineering, and enterprise software for core banking at
+          <strong>Bank Negara Indonesia (BNI)</strong>, complemented by
           deep expertise in
           <strong>Vulnerability Assessment and Penetration Testing (VAPT)</strong>.
           Currently serving as an <strong>Offensive Consultant at PT DefendIT360</strong>,
@@ -82,6 +88,10 @@
             <span class="meta-label">Academic Excellence</span>
           </div>
           <div class="meta-item">
+            <span class="meta-value">5+</span>
+            <span class="meta-label">Years Vector Art</span>
+          </div>
+          <div class="meta-item">
             <span class="meta-value">VAPT</span>
             <span class="meta-label">Offensive Consultant @ DefendIT360</span>
           </div>
@@ -97,7 +107,7 @@
           <p class="items">
             Kotlin <span>/</span> Jetpack Compose <span>/</span> React <span>/</span> Next.js
             <span>/</span> Node.js <span>/</span> Python <span>/</span> Laravel
-            <span>/</span> VAPT <span>/</span> Burp Suite <span>/</span> Nmap <span>/</span> Mendix
+            <span>/</span> Java <span>/</span> VAPT <span>/</span> Burp Suite <span>/</span> Nmap
           </p>
         </div>
       </section>
@@ -139,6 +149,10 @@
       <section id="portofolio">
         <p class="section-label reveal">Selected Works</p>
         <h2 class="section-heading reveal">Vector Art &amp; Illustration.</h2>
+        <p class="portofolio-intro reveal">
+          More than five years crafting vector portraits and illustration — a hand-built
+          craft that runs parallel to the code.
+        </p>
 
         <div class="portofolio-grid">
           <div class="portofolio-item wide reveal">
@@ -325,6 +339,68 @@
         </div>
       </section>
 
+      <!-- Experience Section -->
+      <section id="experience">
+        <p class="section-label reveal">Career</p>
+        <h2 class="section-heading reveal">Experience.</h2>
+
+        <div class="experience-list">
+          <!-- Role 1 -->
+          <div class="exp-row reveal">
+            <div class="exp-meta">
+              <span class="exp-index">01 — Offensive Security</span>
+              <span class="exp-current">Current</span>
+            </div>
+            <div class="exp-body">
+              <h3>Offensive Consultant</h3>
+              <span class="exp-company">PT DefendIT360</span>
+              <ul>
+                <li>Lead authorized VAPT engagements across web applications, infrastructure, internal networks, and exposed services.</li>
+                <li>Drive recon, enumeration, exploitation validation, and CVSS-based risk analysis, then deliver executive-ready reports with clear remediation.</li>
+                <li>Build internal security platforms — Securi Report (AI-assisted pentest reporting) and Securi Leak (authorized credential-leak analysis).</li>
+              </ul>
+              <p class="exp-tags">VAPT · Burp Suite · Nmap · Metasploit · Reporting</p>
+            </div>
+            <div class="exp-period">Feb 2026 — Present</div>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="exp-row reveal">
+            <div class="exp-meta">
+              <span class="exp-index">02 — Software Engineering</span>
+            </div>
+            <div class="exp-body">
+              <h3>Software Developer</h3>
+              <span class="exp-company">Bank Negara Indonesia (BNI)</span>
+              <ul>
+                <li>Built and maintained critical internal business applications supporting core banking operations.</li>
+                <li>Engineered enterprise features with custom Java, focused on performance, reliability, and high availability.</li>
+                <li>Partnered with business analysts and stakeholders to translate requirements into user-friendly solutions.</li>
+              </ul>
+              <p class="exp-tags">Java · Enterprise · Core Banking</p>
+            </div>
+            <div class="exp-period">Jun 2025 — Dec 2025</div>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="exp-row reveal">
+            <div class="exp-meta">
+              <span class="exp-index">03 — Code Review</span>
+            </div>
+            <div class="exp-body">
+              <h3>External Reviewer, Android Developer</h3>
+              <span class="exp-company">Dicoding Indonesia</span>
+              <ul>
+                <li>Review student Android submissions against strict rubric and technical requirements.</li>
+                <li>Surface bugs and edge cases with detailed reproduction steps and technical solutions.</li>
+              </ul>
+              <p class="exp-tags">Kotlin · Jetpack Compose · Code Review</p>
+            </div>
+            <div class="exp-period">Nov 2025 — Present</div>
+          </div>
+        </div>
+      </section>
+
       <!-- About Section -->
       <section id="about">
         <p class="section-label reveal">About</p>
@@ -356,6 +432,7 @@
 
     <!-- Footer -->
     <footer>
+      <div class="monogram" aria-hidden="true"></div>
       <p class="footer-cta reveal">
         Let's build something.<br />
         <a href="mailto:novandiramadhan80@gmail.com">Get in touch</a>
@@ -378,5 +455,16 @@
     <script>
       feather.replace();
     </script>
+
+    <!-- WebGL enhancements (Three.js via import map) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./assets/js/webgl/index.js"></script>
   </body>
 </html>

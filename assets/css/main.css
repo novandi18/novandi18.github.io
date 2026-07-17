@@ -149,6 +149,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 140px;
+  position: relative;
+  z-index: 1;
 }
 
 .section-label {
@@ -381,6 +383,7 @@ main {
 .portofolio-item figure {
   overflow: hidden;
   margin-bottom: 16px;
+  position: relative;
 }
 .portofolio-item img {
   width: 100%;
@@ -546,6 +549,8 @@ footer {
   margin: 160px auto 0;
   border-top: 1px solid var(--rule-color);
   padding: 80px 0 48px;
+  position: relative;
+  z-index: 1;
 }
 .footer-cta {
   font-family: var(--font-display);
@@ -598,6 +603,165 @@ footer {
   margin-top: 32px;
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+/* --- WebGL Recon Grid backdrop --- */
+.recon-grid {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- Portofolio intro line --- */
+.portofolio-intro {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 46ch;
+  margin-top: -24px;
+  margin-bottom: 48px;
+}
+
+/* --- Gallery halftone overlay --- */
+.halftone-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.portofolio-item.halftone-ready img {
+  visibility: hidden;
+}
+
+/* --- Experience (editorial rows) --- */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+}
+.exp-row {
+  display: grid;
+  grid-template-columns: 0.85fr 1.75fr 0.55fr;
+  gap: 40px;
+  align-items: start;
+  padding: 44px 0;
+  border-top: 1px solid var(--rule-color);
+}
+.exp-row:last-child {
+  border-bottom: 1px solid var(--rule-color);
+}
+.exp-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.exp-index {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+.exp-current {
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 3px 10px;
+}
+.exp-body h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.exp-company {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+.exp-body ul {
+  list-style: none;
+  margin-bottom: 18px;
+}
+.exp-body li {
+  position: relative;
+  padding-left: 22px;
+  max-width: 54ch;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.exp-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 11px;
+  height: 1px;
+  background: var(--accent-color);
+}
+.exp-tags {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+.exp-period {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .exp-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 36px 0;
+  }
+  .exp-period {
+    text-align: left;
+  }
+}
+
+/* --- Footer monogram (WebGL) --- */
+.monogram {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+}
+.monogram canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 901px) {
+  .footer-cta {
+    padding-right: 180px;
+  }
+}
+@media (max-width: 900px) {
+  .monogram {
+    display: none;
+  }
 }
 
 /* --- Interactions --- */
